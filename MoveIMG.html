@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="img" src="anh1.jpeg" width="30%" style="position: relative;">
+<br>
+<button onclick="move()">Move</button>
+</body>
+</html>
+
+<script>
+    let number = 0;
+    function move() {
+        let img = document.getElementById("img");
+        number += 50;
+        img.style.left = number + "px";
+    }
+</script>

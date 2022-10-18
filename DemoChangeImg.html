@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="img" src="https://img.websosanh.vn/v2/users/review/images/4wvuq0i4ozs1q.jpg?compress=85" width="30%">
+<br>
+<br>
+<button onclick="changeIMG()">Change</button>
+</body>
+</html>
+<script>
+    let count = 1;
+    function changeIMG() {
+        if (count == 1){
+            document.getElementById("img").src = "https://chuyennghiep.vn/upload/images/2(31).jpg";
+            count ++;
+        }else {
+            document.getElementById("img").src = "https://img.websosanh.vn/v2/users/review/images/4wvuq0i4ozs1q.jpg?compress=85";
+            count = 1;
+        }
+    }
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+user: <input type="text" id="user"><br>
+
+<button onclick="show()">show</button>
+<div id="show">
+    abc
+</div>
+</body>
+</html>
+<script>
+    function show() {
+        let input = document.getElementById("user");
+        let show = document.getElementById("show");
+        show.innerHTML = input.value;
+    }
+
+</script>
