@@ -5,7 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-Name: <input id="inputName" placeholder="Nhập tên">
+Name: <input id="inputName" placeholder="Nhập tên"><br>
+Img: <input id="inputImg" placeholder="Nhập ảnh"><br>
+Age: <input id="inputAge" placeholder="Nhập tuổi"><br>
 <button onclick="add()">ADD</button>
 <h2>Danh sách tên</h2>
 <table id="show" width="400">
@@ -15,28 +17,38 @@ Name: <input id="inputName" placeholder="Nhập tên">
 </html>
 
 <script>
-    let names = ["Toàn", "Ngát"];
+    let names = [["Ngát", 18, "https://kenh14cdn.com/thumb_w/660/2020/7/17/brvn-15950048783381206275371.jpg"],
+                ["Toàn", 20, "https://haycafe.vn/wp-content/uploads/2022/01/hinh-anh-que-huong-dep-binh-di.jpg"]];
     let divShow = document.getElementById("show");
 
     function show() {
         let str = "";
         for (let i = 0; i < names.length; i++) {
-            str += "<tr>"
-            str += "<td><h2>" + names[i] + "</h2></td>"
-            str += "<td><button onclick='xoa(" + i + ")'>Delete</button></td>"
-            str += "<td><button>Edit</button></td>"
-            str += "</tr>"
-            console.log(str)
+           str += `<tr>
+                        <td>${names[i][0]}</td>
+                        <td>${names[i][1]}</td>
+                        <td><img src="${names[i][2]}" width="200" height="150"></td>
+                        <td><button onclick="edit(${i})">Edit</button></td>
+                        <td><button onclick="xoa(${i})">Delete</button></td>
+                    </tr>`
         }
-
         divShow.innerHTML = str;
     }
-
     show();
+
+    function edit(index) {
+        let name = prompt("Nhập name muốn sửa");
+        let img = prompt("Nhập img muốn sửa");
+        let age = prompt("Nhập age muốn sửa");
+        names.splice(index,1,[name,age,img]);
+        show();
+    }
 
     function add() {
         let name = document.getElementById("inputName").value;
-        names.push(name);
+        let img = document.getElementById("inputImg").value;
+        let age = document.getElementById("inputAge").value;
+        names.push([name,age,img]);
         show();
     }
 
