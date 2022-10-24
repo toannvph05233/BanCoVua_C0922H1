@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="800"></canvas>
+</body>
+</html>
+
+<script>
+    //    Viết hàm sumOfListPrime() nhận vào một số nguyên x ,
+    // hàm trả về giá trị là tổng các số nguyên tố từ 0 cho tới x.
+    function sumOfListPrime(x) {
+        let sum = 0;
+        for (let i = 2; i <= x; i++) {
+            if (checkSNT(i)) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+
+    function checkSNT(number) {
+        for (let i = 2; i < number; i++) {
+            if (number % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // bài 4:Hãy viết một chương trình để biểu diễn hình chữ nhật,
+    // với mô tả của lớp hình chữ nhật như sau:
+    // Rectangle: Tên lớp
+    // - x: Toạ độ x
+    // - y: Toạ độ y
+    // -width: chiều dài
+    // - height: chiều rộng
+    // - color: Màu sắc (sử dụng max hex)
+    // + render(canvas): Hiển thị hình chữ nhật trên một canvas
+
+    class Rectangle{
+        x;
+        y;
+        width;
+        height;
+        color;
+        constructor(x, y, width, height, color) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.color = color;
+        }
+        render(canvas){
+            let context = canvas.getContext("2d");
+            context.fillStyle = this.color;
+            context.fillRect(this.x,this.y,this.width,this.height);
+        }
+    }
+    let canvas = document.getElementById("canvas");
+    let hinh1 = new Rectangle(100,100,300,200,"red");
+    let hinh2 = new Rectangle(200,200,300,200,"blue");
+    hinh1.render(canvas);
+    hinh2.render(canvas);
+
+
+
+</script>
